@@ -24,4 +24,3 @@ The point isn't to get login working and call it done. Most cloud breaches trace
 - `/logging-detection` — NSG Flow Logs + Log Analytics queries, Defender for Cloud findings
 - `/misconfiguration-exercise` — intentional mistake, detection, and remediation
 - `/maturity-assessment` — NIST 800-207 / CISA ZTMM scoring and self-assessment
- 
