@@ -2,7 +2,7 @@
  
 Hands-on lab building a multi-subscription Azure environment where every request has to prove who it is and what it's allowed to do, every time. No implicit trust from network location, no standing broad permissions. Built to close a real gap in identity federation knowledge, then formally scored against a government zero trust framework instead of just asserting it's secure.
  
-# What's In Here
+# What Will Be In Here
  
 - **Subscription structure** — multi-subscription environment under a single Entra ID tenant, using Management Groups and Azure Policy as org-wide guardrails, plus least-privilege Azure RBAC
 - **Identity federation** — Entra ID enterprise app registrations with SAML and OIDC, walked through step by step at the protocol level, including what a decoded token actually looks like
