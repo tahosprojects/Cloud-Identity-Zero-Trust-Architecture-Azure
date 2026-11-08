@@ -10,7 +10,7 @@ Hands-on lab building Zero Trust controls in Azure and Entra ID, done as an inde
 * Privileged access, PIM eligible assignment for Security Reader, activated with a justification and expired automatically
 * Policy as code, a Bicep policy assignment deployed by GitHub Actions using OIDC workload identity federation, so no client secret is stored
 * Network segmentation, a VNet with two subnets and default-deny NSGs, plus a deliberate Any/Any rule that was caught and replaced with HTTPS from one admin IP
-* Maturity assessment, the lab scored against NIST SP 800-207 and the CISA Zero Trust Maturity Model v2.0
+* Maturity snapshot, the lab scored against NIST SP 800-207 and the CISA Zero Trust Maturity Model v2.0
 
 ## Stack
 
@@ -58,7 +58,7 @@ Against the CISA Zero Trust Maturity Model v2.0:
 | Applications and Workloads | Initial | Policy deployed by CI/CD. No workloads deployed |
 | Data | Not assessed | Out of scope |
 
-Full tenet table, per-function ratings, and the steps that would raise each rating are in `maturity-assessment.md`.
+These ratings are a self-assessment based only on what was built and tested.
 
 ## Limitations
 
@@ -71,5 +71,4 @@ Full tenet table, per-function ratings, and the steps that would raise each rati
 
 * `.github/workflows/deploy.yml`, the GitHub Actions workflow that deploys the policy using OIDC
 * `policy-as-code/main.bicep`, the Allowed locations policy assignment at subscription scope
-* `maturity-assessment.md`, the NIST SP 800-207 and CISA ZTMM v2.0 assessment
 * `screenshots/`, all evidence screenshots, including the management groups, SAML assertion, OIDC token, and NSG before and after. IDs and IPs are blacked out
