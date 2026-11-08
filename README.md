@@ -2,6 +2,8 @@
 
 Hands-on lab building Zero Trust controls in Azure and Entra ID, done as an independent study (COP 4900) at USF. Identity is the control plane: every request is verified, privileges are temporary, and guardrails are enforced as code. The lab was torn down after testing, so this repo is the record of what was built and proved.
 
+The Azure trust for this workflow was removed at teardown, so it no longer deploys. The workflow and Bicep file are kept as the record of what was built.
+
 ## What's In Here
 
 * Governance, management group hierarchy (ZT-Lab, ZT-Dev, ZT-Prod), scoped RBAC, and an Azure Policy "Allowed locations" deny assigned at the top and inherited down
@@ -9,7 +11,7 @@ Hands-on lab building Zero Trust controls in Azure and Entra ID, done as an inde
 * Conditional Access, CA001 blocking a test user from Azure Resource Manager with a break-glass account excluded, tested in report-only mode first and then enforced
 * Privileged access, PIM eligible assignment for Security Reader, activated with a justification and expired automatically
 * Policy as code, a Bicep policy assignment deployed by GitHub Actions using OIDC workload identity federation, so no client secret is stored
-* Network segmentation, a VNet with two subnets and default-deny NSGs, plus a deliberate Any/Any rule that was caught and replaced with HTTPS from one admin IP
+* Network segmentation, a VNet with two subnets and NSGs that deny inbound internet traffic by default, plus a deliberate Any/Any rule that was found in review and replaced with HTTPS from one admin IP
 * Maturity snapshot, the lab scored against NIST SP 800-207 and the CISA Zero Trust Maturity Model v2.0
 
 ## Stack
@@ -54,7 +56,7 @@ Against the CISA Zero Trust Maturity Model v2.0:
 |--------|-------|-------|
 | Identity | Initial | Access management is the strongest function (PIM). No MFA, so authentication is Traditional |
 | Devices | Not assessed | Out of scope |
-| Networks | Initial | Default-deny NSG segmentation. Flow logs enabled but no traffic captured |
+| Networks | Initial | NSG segmentation that denies inbound internet traffic by default. Subnet-to-subnet traffic left open. Flow logs enabled but no traffic captured |
 | Applications and Workloads | Initial | Policy deployed by CI/CD. No workloads deployed |
 | Data | Not assessed | Out of scope |
 
